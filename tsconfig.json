@@ -16,10 +16,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "plugins": [ { "name": "next" } ],
-    "baseUrl": "src",
+    "baseUrl": "./",
     "declaration": true,
     "paths": {
       "@views/*": [ "views/*" ],
+      "@components/*": [ "components/*" ],
+      "@styles/*": [ "libs/styles/*" ],
+      "@config": [ "libs/config" ],
       "@/*": [ "*" ]
     }
   },

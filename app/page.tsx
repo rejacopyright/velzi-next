@@ -1,4 +1,5 @@
 import { ExpenseItem } from '@views/home/ExpenseItem'
+import { ReceiptDetail } from '@views/home/ReceiptDetail'
 import { ReportHeader } from '@views/home/ReportHeader'
 
 const Page = () => {
@@ -6,6 +7,7 @@ const Page = () => {
     <div className=''>
       <ReportHeader />
       <ExpenseItem />
+      <ReceiptDetail />
     </div>
   )
 }

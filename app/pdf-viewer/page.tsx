@@ -19,7 +19,7 @@ const Page = () => {
             <Button size='3' variant='outline' onClick={() => router.back()}>
               <ArrowLeftIcon /> Cancel
             </Button>
-            <Button size='3' onClick={() => router.push('/')}>
+            <Button size='3' onClick={() => router.back()}>
               <CheckIcon /> Save
             </Button>
           </div>

@@ -3,8 +3,8 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import { FileTextIcon, UploadIcon } from '@radix-ui/react-icons'
-import { Button } from '@radix-ui/themes'
+import { FileTextIcon, Pencil2Icon, TrashIcon, UploadIcon } from '@radix-ui/react-icons'
+import { Button, IconButton } from '@radix-ui/themes'
 import { usePdfStore } from '@store/pdfStore'
 
 import { toSize } from '@/libs/fn'
@@ -12,7 +12,7 @@ import { toSize } from '@/libs/fn'
 export const PDFSection = () => {
   const router = useRouter()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const { file, setFile } = usePdfStore()
+  const { file, setFile, clearFile } = usePdfStore()
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -69,9 +69,20 @@ export const PDFSection = () => {
           )}
           <div className='mt-5'>
             {file?.size ? (
-              <Button size='3' onClick={() => router.push('/pdf-viewer')}>
-                <FileTextIcon /> View PDF
-              </Button>
+              <div className='flex items-center gap-1 justify-center'>
+                <Button size='3' onClick={() => router.push('/pdf-viewer')}>
+                  <FileTextIcon /> View PDF
+                </Button>
+                <IconButton
+                  variant='surface'
+                  size='3'
+                  onClick={() => fileInputRef.current?.click()}>
+                  <Pencil2Icon width='18' height='18' />
+                </IconButton>
+                <IconButton variant='surface' size='3' color='red' onClick={() => clearFile()}>
+                  <TrashIcon width='20' height='20' />
+                </IconButton>
+              </div>
             ) : (
               <Button size='3' variant='outline'>
                 <UploadIcon /> Add Receipt

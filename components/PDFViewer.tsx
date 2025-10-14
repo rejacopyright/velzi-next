@@ -302,6 +302,9 @@ export const PDFViewer = () => {
         enableThumbnail={true}
         enableFormFields={true}
         enablePinchZoom
+        documentLoad={() => {
+          setTotalPage(pdfInstance?.pageCount || 0)
+        }}
         enableFormDesigner={true}>
         <Inject
           services={[

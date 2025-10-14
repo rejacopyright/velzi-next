@@ -1,3 +1,4 @@
+import { ActionCard } from '@views/home/ActionCard'
 import { ExpenseItem } from '@views/home/ExpenseItem'
 import { ReceiptDetail } from '@views/home/ReceiptDetail'
 import { ReportHeader } from '@views/home/ReportHeader'
@@ -8,6 +9,7 @@ const Page = () => {
       <ReportHeader />
       <ExpenseItem />
       <ReceiptDetail />
+      <ActionCard />
     </div>
   )
 }

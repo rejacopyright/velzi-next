@@ -13,6 +13,8 @@ import {
 import { Button, Link, Select, TextField } from '@radix-ui/themes'
 import { Accordion } from 'radix-ui'
 
+import { PDFSection } from './PDFSection'
+
 export const ExpenseItem = () => {
   return (
     <div className='mb-10'>
@@ -31,7 +33,7 @@ export const ExpenseItem = () => {
         </div>
       </div>
       <div className='flex flex-wrap gap-6'>
-        <div className='bg-white rounded-lg border border-gray-200 w-full md:flex-2 overflow-hidden'>
+        <div className='bg-white rounded-lg border border-gray-200 w-full md:flex-5 overflow-hidden'>
           <Accordion.Root type='single' className='' collapsible defaultValue='basic'>
             <Accordion.Item value='basic'>
               <AccordionTrigger>
@@ -102,7 +104,9 @@ export const ExpenseItem = () => {
           </Accordion.Root>
         </div>
         {/* PDF */}
-        <div className='bg-white p-6 rounded-lg border border-gray-200 w-full md:flex-1'>TEST</div>
+        <div className='w-full md:flex-3'>
+          <PDFSection />
+        </div>
       </div>
     </div>
   )

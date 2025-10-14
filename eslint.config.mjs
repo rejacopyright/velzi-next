@@ -71,6 +71,8 @@ const eslintConfig = [
           varsIgnorePattern: '^_',
           args: 'after-used',
           argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
         },
       ],
       'react-hooks/exhaustive-deps': 'error',

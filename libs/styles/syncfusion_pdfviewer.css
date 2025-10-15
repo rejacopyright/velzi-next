@@ -6,7 +6,8 @@
 .e-pv-viewer-container,
 .e-pv-sidebar-toolbar,
 .e-pv-sidebar-content,
-.e-pv-sidebar-title-container {
+.e-pv-sidebar-title-container,
+.e-toolbar .e-toolbar-items {
   background-color: #fff;
 }
 
@@ -55,4 +56,23 @@
 .e-pv-sidebar-toolbar::-webkit-scrollbar-thumb:hover,
 .e-pv-sidebar-content::-webkit-scrollbar-thumb:hover {
   background-color: #71717a;
+}
+.e-toolbar .e-toolbar-item .e-tbar-btn,
+.e-btn:not(.e-pv-tbar-btn),
+.e-menu-parent.e-menu .e-menu-item {
+  background-color: #fff !important;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #6e57cf !important;
+}
+.e-toolbar .e-toolbar-item .e-tbar-btn:hover,
+.e-btn:not(.e-pv-tbar-btn):hover,
+.e-menu-parent.e-menu .e-menu-item:hover {
+  border-radius: 5px;
+  background-color: #f3f2fe !important;
+  /* color: #fff !important; */
+}
+.e-menu-icon,
+.e-caret {
+  color: inherit !important;
 }

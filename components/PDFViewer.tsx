@@ -37,8 +37,8 @@ import {
   DownloadIcon,
   HandIcon,
   Pencil1Icon,
+  Pencil2Icon,
   ReaderIcon,
-  TrashIcon,
   ZoomInIcon,
   ZoomOutIcon,
 } from '@radix-ui/react-icons'
@@ -69,6 +69,7 @@ export const PDFViewer = () => {
   const [zoomPercentage, setZoomPercentage] = useState<string>('100')
   const [interactionMode, setInteractionMode] = useState<InteractionMode>('TextSelection')
   const [annotationMode, setAnnotationMode] = useState<AnnotationType | null>(null)
+  const [isAnnotationToolbarOpen, setIsAnnotationToolbarOpen] = useState<boolean>(false)
 
   const { file, setFile } = usePdfStore()
 
@@ -152,10 +153,10 @@ export const PDFViewer = () => {
     }
   }
 
-  const deleteAnnotation = () => {
-    setAnnotationMode(null)
-    pdfInstance?.annotationModule.deleteAnnotation()
-  }
+  // const deleteAnnotation = () => {
+  //   setAnnotationMode(null)
+  //   pdfInstance?.annotationModule.deleteAnnotation()
+  // }
 
   return (
     <div className=''>
@@ -235,10 +236,22 @@ export const PDFViewer = () => {
             onClick={highlight}>
             <BlendingModeIcon width='16' height='16' />
           </IconButton>
-          <IconButton variant='surface' color='gray' size='2' onClick={deleteAnnotation}>
+          {/* <IconButton variant='surface' color='gray' size='2' onClick={deleteAnnotation}>
             <TrashIcon width='22' height='22' />
-          </IconButton>
+          </IconButton> */}
         </div>
+        <IconButton
+          variant={isAnnotationToolbarOpen ? 'solid' : 'surface'}
+          size='2'
+          onClick={() => {
+            setIsAnnotationToolbarOpen((prev) => {
+              pdfInstance?.toolbarModule.showAnnotationToolbar(!prev)
+
+              return !prev
+            })
+          }}>
+          <Pencil2Icon width='20' height='20' />
+        </IconButton>
         <div className='flex items-center ms-auto me-3 gap-1'>
           <IconButton
             size='1'
